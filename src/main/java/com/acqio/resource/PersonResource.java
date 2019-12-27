@@ -3,60 +3,63 @@ package com.acqio.resource;
 import com.acqio.models.City;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PersonResource
-{
+public class PersonResource {
 
     @JsonProperty("fullName")
     private String fullName;
 
     @JsonProperty("id")
-    private String id;
+    private Long id;
 
     @JsonProperty("socialDocumentNumber")
-    private String socialDocumentNumber;
+    private Long socialDocumentNumber;
 
     @JsonProperty("registryNumber")
-    private String registryNumber;
+    private Long registryNumber;
 
     @JsonProperty("email")
     private String email;
 
     @JsonProperty("phone")
-    private String phone;
+    private Long phone;
 
     @JsonProperty("city")
     private City city;
 
+    public PersonResource() {
+    }
 
     public String getFullName() {
+
         return fullName;
     }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getSocialDocumentNumber() {
+    public Long getSocialDocumentNumber() {
         return socialDocumentNumber;
     }
 
-    public void setSocialDocumentNumber(String socialDocumentNumber) {
+    public void setSocialDocumentNumber(Long socialDocumentNumber) {
         this.socialDocumentNumber = socialDocumentNumber;
     }
 
-    public String getRegistryNumber() {
+    public Long getRegistryNumber() {
         return registryNumber;
     }
 
-    public void setRegistryNumber(String registryNumber) {
+    public void setRegistryNumber(Long registryNumber) {
         this.registryNumber = registryNumber;
     }
 
@@ -68,11 +71,11 @@ public class PersonResource
         this.email = email;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -84,7 +87,6 @@ public class PersonResource
         this.city = city;
     }
 
-    public PersonResource() {
-    }
+
 
 }

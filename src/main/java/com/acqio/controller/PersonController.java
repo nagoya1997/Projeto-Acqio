@@ -5,43 +5,45 @@ import com.acqio.exceptions.PersonResourceException;
 import com.acqio.models.Person;
 import com.acqio.repository.PersonRepository;
 import com.acqio.resource.PersonResource;
-import com.acqio.service.fetchPersonByIdServiceImpl;
-import com.acqio.service.fetchPersonServiceImpl;
-import com.acqio.service.savePersonServiceImpl;
+import com.acqio.service.FetchPersonByIdServiceImpl;
+import com.acqio.service.FetchPersonServiceImpl;
+
+import com.acqio.service.SavePersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 public class PersonController {
 
     @Autowired
     private PersonRepository personRepository;
 
     @Autowired
-    private fetchPersonServiceImpl service_findAll;
+    private FetchPersonServiceImpl service_FindAll;
 
     @Autowired
-    private savePersonServiceImpl service_savePerson;
+    private SavePersonServiceImpl service_SavePerson;
 
     @Autowired
-    private fetchPersonByIdServiceImpl service_fetchPersonById;
+    private FetchPersonByIdServiceImpl service_FetchPersonById;
 
-    @GetMapping(path = "/person")
-    public List<Person> fetchPerson(){
-        return service_findAll.fetchPerson();
+    @GetMapping(value = "person")
+    public List<Person> fetchPerson() {
+        return service_FindAll.fetchPerson();
     }
 
-    @GetMapping(path = "/person/id/{id}")
-    public Person fetchPersonById(@PathVariable(name = "id", required = true) Long idPerson) throws PersonNotFoundException {
-        return service_fetchPersonById.fetchPersonById(idPerson);
+    @GetMapping(path = "person/id/{id}")
+    public Person fetchPersonById(@PathVariable(name = "id", required = true) Long id) throws PersonNotFoundException {
+        return service_FetchPersonById.fetchPersonById(id);
     }
 
-    @PostMapping(path = "/person/save")
+    @PostMapping(path = "person/save")
+    @Transactional
     public void savePerson(@RequestBody PersonResource personResource) throws PersonResourceException {
-        service_savePerson.savePerson(personResource);
+        service_SavePerson.savePerson(personResource);
     }
 
 

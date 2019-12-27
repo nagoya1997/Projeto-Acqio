@@ -12,10 +12,10 @@ public class Person implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String fullName;
-    private String socialDocumentNumber;
-    private String registryNumber;
+    private Long socialDocumentNumber;
+    private Long registryNumber;
     private String email;
-    private String phone;
+    private Long phone;
     private City city;
 
     public Person() {
@@ -38,19 +38,19 @@ public class Person implements Serializable {
         this.fullName = fullName;
     }
 
-    public String getSocialDocumentNumber() {
+    public Long getSocialDocumentNumber() {
         return socialDocumentNumber;
     }
 
-    public void setSocialDocumentNumber(String socialDocumentNumber) {
+    public void setSocialDocumentNumber(Long socialDocumentNumber) {
         this.socialDocumentNumber = socialDocumentNumber;
     }
 
-    public String getRegistryNumber() {
+    public Long getRegistryNumber() {
         return registryNumber;
     }
 
-    public void setRegistryNumber(String registryNumber) {
+    public void setRegistryNumber(Long registryNumber) {
         this.registryNumber = registryNumber;
     }
 
@@ -62,11 +62,11 @@ public class Person implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

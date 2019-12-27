@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class StateResource {
 
     @JsonProperty("id")
-    private String id;
+    private Long id;
 
     @JsonProperty("name")
     private String name;
@@ -13,16 +13,16 @@ public class StateResource {
     public StateResource() {
     }
 
-    public StateResource(String id, String name) {
+    public StateResource(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
